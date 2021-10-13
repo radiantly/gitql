@@ -80,15 +80,12 @@ jobs:
         path: |
           ./*
         key: build-${{ matrix.os }}-${{ matrix.go }}-${{ env.cache-name }}
-  
-    - name: Setup BATS
-      run: npm install --global bats@1.4.1
 
-    - name: Run functional tests
+    - name: Run functional tests using BATS
       run: | 
         git stash -u
         git checkout main 
-        bats ./test
+        npx bats@1.4.1 ./test
   
   upload:
     needs:
