@@ -82,9 +82,7 @@ jobs:
         key: build-${{ matrix.os }}-${{ matrix.go }}-${{ env.cache-name }}
   
     - name: Setup BATS
-      uses: mig4/setup-bats@v1
-      with:
-        bats-version: 1.4.1
+      run: npm install --global bats@1.4.1
 
     - name: Run functional tests
       run: | 
